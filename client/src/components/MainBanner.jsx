@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom'
 const MainBanner = () => {
   return (
     <div className="relative">
-     
+
       <img
         src={assets.main_banner_bg_sm}
         alt="Main Banner"
-  className="w-full h-auto object-cover block md:hidden"
+        className="w-full h-auto object-cover block md:hidden"
       />
-       <img
+      <img
         src={assets.main_banner_bg}
         alt="Main Banner"
-  className="w-full h-[750px] object-cover hidden md:block"
+        className="w-full h-[750px] object-cover hidden md:block"
       />
 
       <div className="absolute inset-0 bg-black/30"></div>

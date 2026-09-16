@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 import { useAppContext } from '../context/AppContext'
 
 export default function BestSeller() {
-    const {products} = useAppContext();
+    const { products } = useAppContext();
     return (
         <div className='mt-16'>
             <p className='text-2x] md:text-3x] font-medium'>Best Sellers</p>
