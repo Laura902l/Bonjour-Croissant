@@ -1,5 +1,5 @@
 import { assets } from '../assets/assets'
-import { Link } from 'react-router-dom'
+import IconLink from './IconLink'
 
 const MainBanner = () => {
   return (
@@ -28,29 +28,13 @@ const MainBanner = () => {
         </p>
 
         <div className="flex flex-col md:flex-row items-center gap-4 mt-10 font-medium">
-          <Link
-            to="/products"
-            className="group flex items-center gap-2 px-8 py-3 bg-yellow-900 hover:bg-yellow-800 transition rounded text-white shadow-lg"
-          >
+          <IconLink to="/products" icon={assets.white_arrow_icon}>
             Shop now
-            <img
-              className="transition group-hover:translate-x-1"
-              src={assets.white_arrow_icon}
-              alt="arrow"
-            />
-          </Link>
+          </IconLink>
 
-          <Link
-            to="/products"
-            className="group flex items-center gap-2 px-8 py-3 border border-yellow-100 text-yellow-100 rounded hover:bg-yellow-100 hover:text-yellow-900 transition shadow-md"
-          >
+          <IconLink to="/products" icon={assets.white_arrow_icon} variant="outline">
             Explore menu
-            <img
-              className="transition group-hover:translate-x-1"
-              src={assets.white_arrow_icon}
-              alt="arrow"
-            />
-          </Link>
+          </IconLink>
         </div>
       </div>
     </div>
