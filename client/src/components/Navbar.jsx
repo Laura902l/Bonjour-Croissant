@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
+import Button from './Button'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -38,9 +39,9 @@ const Navbar = () => {
                 </div>
 
                 {(!user ?
-                    <button onClick={() => setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-yellow-900 hover:bg-yellow-800 transition text-white rounded-full">
+                    <Button onClick={() => setShowUserLogin(true)} className="px-8 py-2">
                         Login
-                    </button>
+                    </Button>
                     :
                     (
                         <div className='relative group'>
@@ -68,16 +69,16 @@ const Navbar = () => {
                     }
                     <NavLink to="/" onClick={() => setOpen(false)}>Contact</NavLink>
                     {!user ? (
-                        <button onClick={() => {
+                        <Button onClick={() => {
                             setOpen(false);
                             setShowUserLogin(true);
-                        }} className="cursor-pointer px-6 py-2 mt-2 bg-yellow-900 hover:bg-yellow-800 transition text-white rounded-full text-sm">
+                        }} className="px-6 py-2 mt-2 text-sm">
                             Login
-                        </button>
+                        </Button>
                     ) : (
-                        <button onClick={logout} className="cursor-pointer px-6 py-2 mt-2 bg-yellow-900 hover:bg-yellow-800 transition text-white rounded-full text-sm">
+                        <Button onClick={logout} className="px-6 py-2 mt-2 text-sm">
                             Logout
-                        </button>
+                        </Button>
                     )
                     }
                 </div>
