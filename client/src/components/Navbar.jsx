@@ -1,15 +1,14 @@
-/* eslint-disable no-undef */
-import React from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
 
 const Navbar = () => {
-    const [open, setOpen] = React.useState(false)
-    const { user, setUser, setShowUserLogin } = useAppContext();
+    const [open, setOpen] = useState(false)
+    const { user, setUser, setShowUserLogin, navigate, cartCount } = useAppContext();
     const logout = async () => {
         setUser(null);
-        navigator('/')
+        navigate('/')
     }
 
 
@@ -33,7 +32,9 @@ const Navbar = () => {
 
                 <div onClick={() => navigate("/cart")} className="relative cursor-pointer">
                     <img src={assets.nav_cart_icon} alt="cart" className='w-6 opacity-80' />
-                    <button className="absolute -top-2 -right-3 text-xs text-white bg-yellow-800 w-[18px] h-[18px] rounded-full">3</button>
+                    {cartCount > 0 && (
+                        <button className="absolute -top-2 -right-3 text-xs text-white bg-yellow-800 w-[18px] h-[18px] rounded-full">{cartCount}</button>
+                    )}
                 </div>
 
                 {(!user ?
@@ -45,8 +46,7 @@ const Navbar = () => {
                         <div className='relative group'>
                             <img src={assets.profile_icon} className='w-10' alt="profile_icon" />
                             <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
-                                // eslint-disable-next-line no-undef
-                                <li onClick={() => navigate("my-orders")} className='p-1.5 pl-3 hover:bg-yellow-50 cursor-pointer'>My Orders</li>
+                                <li onClick={() => navigate("/my-orders")} className='p-1.5 pl-3 hover:bg-yellow-50 cursor-pointer'>My Orders</li>
                                 <li onClick={logout} className='p-1.5 pl-3 hover:bg-yellow-50 cursor-pointer'>Logout</li>
 
                             </ul>
