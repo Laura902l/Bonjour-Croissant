@@ -1,5 +1,4 @@
-import React from 'react'
-import { categories } from '../assets/assets'
+import { categories } from '../data/menu'
 import { useAppContext } from '../context/AppContext'
 
 function Categories() {
@@ -25,7 +24,7 @@ function Categories() {
             className="group cursor-pointer rounded-3xl overflow-hidden shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 bg-[#F8EBD7]"
             onClick={() => {
               navigate(`/products/${category.path.toLowerCase()}`)
-              scrollTo(0, 0)
+              window.scrollTo(0, 0)
             }}
           >
             {/* Фото */}

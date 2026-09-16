@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { dummyProducts } from "../assets/assets";
+import { dummyProducts } from "../data/products";
 import { toast } from "react-hot-toast";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -39,7 +39,7 @@ export const AppContextProvider = ({ children }) => {
         let cartData = structuredClone(cartItems);
         cartData[itemId] = quantity;
         setCartItems(cartData)
-        toast.success("Card updated");
+        toast.success("Cart updated");
     }
 
     // Remove Product from Cart
@@ -59,6 +59,8 @@ export const AppContextProvider = ({ children }) => {
         fetchProducts();
     }, []);
 
+    const cartCount = Object.values(cartItems).reduce((total, qty) => total + qty, 0);
+
     const value = {
         navigate,
         user,
@@ -71,6 +73,7 @@ export const AppContextProvider = ({ children }) => {
         currency,
         cartItems,
         setCartItems,
+        cartCount,
         addToCart,
         updateCartItem,
         removeFromCart,
