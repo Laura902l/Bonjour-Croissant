@@ -5,10 +5,9 @@ import BestSeller from '../components/BestSeller'
 function Home() {
   return (
     <div>
-        <MainBanner/>
-        <Categories/>
-        <BestSeller/>
-
+      <MainBanner />
+      <Categories />
+      <BestSeller />
     </div>
   )
 }
